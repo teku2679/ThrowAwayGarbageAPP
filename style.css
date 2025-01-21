@@ -1,0 +1,310 @@
+noscript {
+    color: #d4351c;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    width: 60%;
+    min-width: 8rem;
+    max-width: 18rem;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    background-color: #00a0a0;
+    margin: 1rem auto;
+    padding: 4px;
+    box-shadow: 0 0 0.5rem 0 #00a0a0;
+    border-radius: 10px;
+}
+
+h3 {
+    width: 60%;
+    min-width: 13rem;
+    max-width: 16rem;
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+    color: white;
+    background-color: #00a9a9;
+    margin: 1rem auto;
+    padding: 4px;
+    box-shadow: 0 0 0.5rem 0 #00a9a9;
+    border-radius: 10px;
+}
+
+p {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    margin: 0.2rem auto;
+    padding: 0.5rem; /* ボタンの内側の余白を設定 */
+    width: 50%;
+    max-width: 15rem;
+    min-width: 11rem;
+    font-size: 19px; /* フォントサイズを設定 */
+    cursor: pointer; /* カーソルをポインターに変更 */
+    border: none; /* ボーダーを削除 */
+    border-radius: 5px; /* 角を丸くする */
+    background-color: #007BFF; /* 背景色を設定 */
+    box-shadow: 0 0 0.5rem 0 #007BFF;
+    border-radius: 6px;
+    color: white; /* テキストの色を設定 */
+}
+
+.notibutton {
+    display: flex;
+    margin: 0.2rem auto;
+    padding: 0.5rem 2rem; /* ボタンの内側の余白を設定 */
+    font-size: 16px; /* フォントサイズを設定 */
+    cursor: pointer; /* カーソルをポインターに変更 */
+    border: none; /* ボーダーを削除 */
+    border-radius: 5px; /* 角を丸くする */
+    background-color: #007BFF; /* 背景色を設定 */
+    box-shadow: 0 0 0.5rem 0 #007BFF;
+    border-radius: 6px;
+    color: white; /* テキストの色を設定 */
+}
+
+table {
+    width: 100%;
+    max-width: 60rem;
+    margin: auto;
+    border: solid 1px black;
+    border-spacing: 2px;
+    font-size: 19px;
+}
+
+th,td{
+    border: solid 1px black;
+    padding: 4px;
+    text-align: center;
+}
+
+#watch{
+    width: 80%;
+    min-width: 8rem;
+    max-width: 40rem;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 28px;
+    background: #008b8b;
+    padding: 4px;
+    box-shadow: 0 0 1rem 0 #008b8b;
+    border-radius: 10px;
+    color: white;
+}
+
+/* カレンダー全体のスタイル */
+#kare {
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 8px;
+    }
+
+    .button {
+        margin: 0.2rem 1rem; /* ボタン間隔を設定 */
+        padding: 0.5rem 2rem; /* ボタンの内側の余白を設定 */
+        font-size: 16px; /* フォントサイズを設定 */
+        cursor: pointer; /* カーソルをポインターに変更 */
+        border: none; /* ボーダーを削除 */
+        border-radius: 5px; /* 角を丸くする */
+        background-color: #007BFF; /* 背景色を設定 */
+        box-shadow: 0 0 0.5rem 0 #007BFF;
+        border-radius: 6px;
+        color: white; /* テキストの色を設定 */
+    }
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 400px;  /* 最大幅を設定 */
+        table-layout: fixed; /* 各列の幅を一定に保つ */
+        margin: 0 auto; /* 中央揃え */
+    }
+
+    td {
+        border: 1px solid #ddd;
+        text-align: center;
+        vertical-align: middle;
+        width: 14.28%; /* 7列で均等幅 */
+        height: 2rem; /* 各セルの高さを統一 */
+        padding: 0; /* パディングをリセット */
+        font-size: clamp(20px, 1.5vw, 50px); /* 最小12px, 望ましい2vw, 最大24px */
+        font-family: 'sans-serif'; /* 新しいフォントを設定 */
+    }
+
+    td.is-disabled {
+        background-color: #FFFFFF; /* 無効な日付の背景色 */
+        color: #FFFFFF; /* 無効な日付の文字色 */
+    }
+
+    /* 背景色指定 */
+    td.monday {
+        background-color: rgba(255, 166, 0, 0.658); /* 月曜日 */
+    }
+
+    td.tuesday,
+    td.friday {
+        background-color: rgb(218, 213, 213); /* 火曜日と金曜日 */
+    }
+
+    td.thursday {
+        background-color: #89c3eb; /* 木曜日 */
+    }
+
+    td.first-third-fifth-wednesday {
+        background-color: #F98620; /* 第1・3・5水曜日 */
+    }
+
+    td.second-fourth-wednesday {
+        background-color: rgba(159, 236, 159, 0.647); /* 第2・4水曜日 */
+    }
+
+    td:first-child {
+        color: red;
+    }
+
+    td:last-child {
+        color: royalblue;
+    }
+
+    td.current-day {
+        border: 3.5px solid black; /* 黒色の枠を追加 */
+        box-sizing: border-box; /* ボックスのサイズ計算にborderを含める */
+    }
+
+    /* ヘッダー（曜日部分） */
+    thead td {
+        font-weight: bold;
+        background-color: #FFFFFF; 
+    }
+
+    /* ボタンとタイトル */
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .thismonth {
+        font-size: 28px;
+        margin-bottom: 0%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #karenda {
+        margin: 0 auto;
+        display: table;
+    }
+
+    .gomi-bubble {
+        position: absolute;
+        background-color: #f9f9f9;
+        border: 2px solid #bbb;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-size: clamp(20px, 1.5vw, 50px);
+        font-weight: bold;
+        max-width: 150px;
+        text-align: center;
+        visibility: hidden; /* 初期状態では非表示 */
+        transition: opacity 0.3s ease;
+    }
+    
+    .gomi-bubble:after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: -10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent #bbb transparent transparent;
+    }
+
+    span {
+        padding: 0.2rem;
+        margin: 0.5rem;
+    }
+
+    .colorserect{
+        font-size: 19px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        margin: 1rem;
+        line-height: 3rem;
+    }
+
+    .redcolor{
+        background-color:rgba(255, 166, 0, 0.658);
+    }
+
+    .graycolor{
+        background-color:rgb(218, 213, 213);
+    }
+
+    .watercolor{
+        background-color:#89c3eb;
+    }
+
+    .orangecolor{
+        background-color:#F98620;
+    }
+
+    .greencolor{
+        background-color:rgba(159, 236, 159, 0.647);
+    }
+}
+
+@media (max-width: 600px) {
+    #watch {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+    a {
+            font-size: 16px;
+        }
+
+    table{
+        font-size: 14px;
+    }
+
+    #kare {
+        .thismonth {
+            font-size: 16px;
+        }
+
+        .button{
+            font-size: 13px;
+        }
+
+        .colorserect {
+            font-size: 12px;
+            margin: 0.5rem;
+            line-height: 2rem;
+        }
+    }
+}

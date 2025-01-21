@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <title>GO me</title> <!--ごみの日を通知するプログラムを作ろう-->
+        <script src="watch.js"></script>
+    </head>
+    <body>
+        <noscript><b>Javascriptが無効化されています</b></noscript>
+        <div id="wrapper">
+            <h1 id="watch">00:00:00</h1>
+        </div>
+
+        <div id="kare">
+        <div class="carenda">
+            <h2 class="thismonth">2025/1</h2>
+        </div>
+        <table id ="karenda">
+            <tbody>
+                <div class="button-container">
+                    <button class="button" id="prev" type="button"><b>前の月</b></button>
+                    <button class="button" id="next" type="button"><b>次の月</b></button>
+                </div>
+                <script type="text/javascript" src="kare.js"></script>
+            </tbody>
+        </table>
+        <div id="gomi-bubble" class="gomi-bubble"></div>
+        <div class ="colorserect">
+            <div class="colorleft"><span class="redcolor">黄色</span>＝古着・新聞</div>
+            <div class="colormigi"><span class="graycolor">灰色</span>＝可燃ごみ</div>
+            <div class="colorleft"><span class="watercolor">水色</span>＝廃プラ・ペット</div>
+            <div class="colormigi"><span class="orangecolor">橙色</span>＝不燃</div>
+            <div class="colorleft"><span class="greencolor">緑色</span>＝缶・びん</div>
+        </div></div>
+
+        <h2>次のごみの日</h2>
+            <script src="date.js"></script>
+
+        <h2>通知設定</h2>
+        <p>以下のボタンからデスクトップ通知を設定できます。</p><p><b>※注意　タブを開いていないと動きません。ブラウザによっては非対応です。</b></p>
+        <button type="button" class="notibutton" id="btn">通知設定ボタン</button>
+        <script src="notification.js"></script>
+        
+        <h3>質問・意見用フォーム</h3>
+        <p>このアプリケーションに対する質問・意見などはこちらのフォームからご送信ください。</p>
+        <a href="https://forms.gle/CDbvP7FPL9zfg5BPA" id="linkbutton">質問・意見用フォーム</a>
+    </body>
+</html>
