@@ -45,7 +45,7 @@ p {
 a {
     display: flex;
     justify-content: center;
-    margin: 0.2rem auto;
+    margin: 0.2rem auto 5rem;
     padding: 0.5rem; /* ボタンの内側の余白を設定 */
     width: 50%;
     max-width: 15rem;
