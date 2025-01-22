@@ -80,7 +80,7 @@ function checkTimeAndNotify() {
     const currentMinutes = now.getMinutes();
 
     // 通知を送信する条件
-    if (now.getHours() === 18 && currentMinutes === 17) {
+    if (now.getHours() === 7 && currentMinutes === 0) {
         lastNotificationSent = new Date(); // 現在の時間を記録
 
         const targetDays = [

@@ -63,7 +63,7 @@ function renderCalendar(year, month) {
 
     kareHTML += "</tbody>";
     document.getElementById("karenda").innerHTML = kareHTML;
-    document.querySelector(".thismonth").textContent = `${year}/${String(month + 1).padStart(2, "0")}`;
+    document.querySelector(".thismonth").textContent = "寝屋川市A地区　" + `${year}/${String(month + 1).padStart(2, "0")}`;
 }
 
 document.getElementById("prev").addEventListener("click", function () {

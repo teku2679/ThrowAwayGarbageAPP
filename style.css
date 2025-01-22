@@ -7,9 +7,9 @@ h1 {
 }
 
 h2 {
-    width: 60%;
-    min-width: 8rem;
-    max-width: 18rem;
+    width: 65%;
+    min-width: 14rem;
+    max-width: 30rem;
     display: flex;
     justify-content: center;
     font-size: 20px;
@@ -91,7 +91,7 @@ th,td{
 
 #watch{
     width: 80%;
-    min-width: 8rem;
+    min-width: 16rem;
     max-width: 40rem;
     display: flex;
     justify-content: center;
