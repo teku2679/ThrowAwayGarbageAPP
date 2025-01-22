@@ -1,11 +1,10 @@
-function btnClick(){
+function btnClick() {
     if (window.Notification) {
         alert('Notificationは有効です');
         // Permissionの確認
         if (Notification.permission === 'granted') {
-            // 許可されている場合はNotificationで通知
             alert('通知許可されています');
-            var n = new Notification("通知が有効になりました");
+            Push.create("通知が有効になりました");
             startDailyNotifications();
         } else if (Notification.permission === 'denied') {
             alert('通知拒否されています');
@@ -13,20 +12,20 @@ function btnClick(){
             alert('通知可能か不明です');
             // 許可が取れていない場合はNotificationの許可を取る
             Notification.requestPermission(function(result) {
-            if (result === 'denied') {
-                alert('通知許可されませんでした');
-            } else if (result === 'default') {
-                alert('通知可能か不明です');
-            } else if (result === 'granted') {
-                alert('通知許可されました');
-                var n = new Notification("通知が有効になりました");
-                startDailyNotifications();
-            }
-          })
+                if (result === 'denied') {
+                    alert('通知許可されませんでした');
+                } else if (result === 'default') {
+                    alert('通知可能か不明です');
+                } else if (result === 'granted') {
+                    alert('通知許可されました');
+                    Push.create("通知が有効になりました");
+                    startDailyNotifications();
+                }
+            });
         }
-      } else {
+    } else {
         alert('Notificationは無効です');
-      }
+    }
 }
 
 function startDailyNotifications() {
@@ -50,9 +49,7 @@ function scheduleWeeklyNotification(targetDays, alternativeMessages) {
             if (dateToCheck.getDay() === day) {
                 count++;
                 if (count === occurrence && currentDate === d) {
-                    if (Notification.permission === 'granted') {
-                        new Notification("お知らせ", { body: message });
-                    }
+                    Push.create("お知らせ", { body: message });
                 }
             }
         }
@@ -66,8 +63,8 @@ function scheduleWeeklyNotification(targetDays, alternativeMessages) {
             if (dateToCheck.getDay() === day) {
                 count++;
                 if (count === occurrence && !sentAlternativeNotifications.has(day)) {
-                    if (Notification.permission === 'granted' && alternativeMessages[day]) {
-                        new Notification("お知らせ", { body: alternativeMessages[day] });
+                    if (alternativeMessages[day]) {
+                        Push.create("お知らせ", { body: alternativeMessages[day] });
                         sentAlternativeNotifications.add(day);
                     }
                 }
@@ -76,10 +73,16 @@ function scheduleWeeklyNotification(targetDays, alternativeMessages) {
     });
 }
 
+let lastNotificationSent = null; // 最後に通知を送信した時間
+
 function checkTimeAndNotify() {
     const now = new Date();
     const currentMinutes = now.getMinutes();
-    if (now.getHours() === 7 && currentMinutes === 0) {
+
+    // 通知を送信する条件
+    if (now.getHours() === 18 && currentMinutes === 17) {
+        lastNotificationSent = new Date(); // 現在の時間を記録
+
         const targetDays = [
             { day: 3, occurrence: 1, message: "今日は不燃ごみの日です!"},
             { day: 3, occurrence: 3, message: "今日は不燃ごみの日です!"},
@@ -89,19 +92,15 @@ function checkTimeAndNotify() {
         ];
 
         const alternativeMessages = {
-            //0: "日曜",
             1: "今日は古紙・古着ごみの日です!",
             2: "今日は可燃ごみの日です!",
-            //3: "水曜",
             4: "今日は廃プラ・ペットごみの日です!",
             5: "今日は可燃ごみの日です!"
-            //6: "土曜"
         };
 
         scheduleWeeklyNotification(targetDays, alternativeMessages);
     }
 }
-
 
 // ボタンがクリックされた時に通知の許可を取得する
 document.getElementById('btn').addEventListener('click', btnClick);
